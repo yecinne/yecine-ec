@@ -5,7 +5,7 @@ var express = require("express"),
 	flash=require("connect-flash"),
 	config=require("./config/config.js"),
 	passport=require("passport"),
-	Category = require("./models/category.js")
+	Category = require("./models/category.js"),
 	Cart = require("./models/cart.js")
 
 
