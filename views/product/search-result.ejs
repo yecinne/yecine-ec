@@ -1,0 +1,32 @@
+<%  layout("layout") -%>
+<div class="container">
+
+<% if(products.length === 0){ %>
+	
+	<h3>Search not found</h3>
+<% } else {%>
+	<h3>Results for <strong><%= query %></strong></h3>
+	
+	<div class="row">
+		<% products.forEach(function(product){ %>
+		<div class="col-md-3">
+		<a href="/product/show/<%= product._id %>">
+			<span class="thumbnail">
+				<img src="<%= product._source.image %>" alt="">
+				<span class="caption">
+					<h3><%= product._source.name %> </h3>
+					<p><%= product._source.category %> </p>
+					<p>$<%= product._source.price %> </p>
+				</span>
+
+			</span>
+
+		</a>
+
+		</div>
+		<% }) %>
+	</div>
+
+<% } %>
+
+</div>

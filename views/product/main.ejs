@@ -1,0 +1,65 @@
+<%  layout("layout") -%>
+
+<div class="jumbotron" id="nav-top">
+	<div class="container">
+		<h1 class="text-center">Find your favourite product</h1>
+		<p class="text-center">Search many of Ecommerce products</p>
+		
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+
+				<div class="input-group input-group-lg">
+				<input type="text" class="form-control input-lg" id="search" placeholder="Search ...">
+					<span class="input-group-btn">
+						<button class="btn btn-default btn-lg" type="submit"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Signup &raquo;</a></p> -->
+	</div>
+</div>
+
+<div class="container">
+	<div class="row" id="searchResults">
+		<% products.forEach(function(product){ %>
+		<div class="col-md-3">
+			<a href="/product/show/<%= product._id %>">
+				<span class="thumbnail">
+					<img src="<%= product.image %>" alt="">
+					<span class="caption">
+						<h3><%= product.name %> </h3>
+						<p><%= product.category.name %> </p>
+						<p>$<%= product.price %> </p>
+					</span>
+
+				</span>
+
+			</a>
+
+		</div>
+		<% }) %>
+	
+	<div class="row" id="pag">
+		<div class="col-md-4 col-md-offset-4">
+			<ul class="pagination text-center " >
+				<li>
+					<% for(var i=1;i<= pages;i++) { %>
+					<a href="/product/get-products?page=<%= i %>" <% if(page == i ) { %> id="aaaa" <% } %>>
+
+						<%= i %>
+						
+					</a>
+
+					<% } %>
+
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	</div>
+
+	
+</div>

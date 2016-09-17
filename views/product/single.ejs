@@ -1,0 +1,44 @@
+<%  layout("layout") -%>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<img id="img1" src="<%= product.image %>" alt="">
+
+		</div>
+		<div class="col-md-4">
+
+
+		</div>
+		<div class="col-md-4">
+
+			<h3><%= product.name %> </h3>
+			<h1>$<%= product.price %> </h1>
+
+			<form action="/cart/<%= product._id %>/edit" method="post">
+				<div class="btn-group" role="group" area-label="...">
+					<input type="hidden" name="quantity" id="quantity" value="1">
+					<button class="btn btn-default" id="minus" >-</button>
+					<button class="btn btn-default" id="total" >1</button>
+					<button class="btn btn-default" id="plus" >+</button>
+				</div>
+
+				<div class="form-group">
+					<input type="hidden" name="priceHidden" id="priceHidden" value="<%= product.price %> ">
+
+					<input type="text" name="priceValue" class="form-control" id="priceValue" value="<%= product.price %> ">
+
+				</div>
+					<% if (user){ %>
+						<button class="btn btn-primary btn-lg">Add to cart</button>
+					<% } else { %>
+						<a href="/auth/signup" class="btn btn-warning btn-lg">Singn up to buy</a>
+					<% } %>
+
+			</form>
+			
+		</div>
+
+	</div>
+</div>
+
